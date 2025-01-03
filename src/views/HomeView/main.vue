@@ -1,18 +1,18 @@
 <template>
     <div class="homepageview content-page">
         <GenericHeader>
-            <template #name>Home</template>
+            <template #name>{{ $t("home.title") }}</template>
             <template #description>{{ getGreetings('') }}</template>
         </GenericHeader>
         <!-- v-if="home.recentlyPlayed.length" -->
         <RecentItems
-            :title="'Recently Played'"
+            :title="$t('recent_items.played')"
             :items="home.recentlyPlayed"
             :play-source="playSources.track"
         />
         <!-- v-if="home.recentlyAdded.length" -->
         <RecentItems
-            :title="'Recently Added'"
+            :title="$t('recent_items.added')"
             :items="home.recentlyAdded"
             :play-source="playSources.recentlyAdded"
             :route="'/playlist/recentlyadded'"
@@ -24,6 +24,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted } from 'vue'
 import { onBeforeRouteLeave } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 import { playSources } from '@/enums'
 import { updateCardWidth } from '@/stores/content-width'
@@ -35,6 +36,7 @@ import RecentItems from '@/components/shared/CardScroller.vue'
 import GenericHeader from '@/components/shared/GenericHeader.vue'
 
 const home = useHome()
+const { t } = useI18n({ useScope: 'global' })
 
 // const recentlyPlayed = computed(() => {
 //     if (!home.recentlyPlayed.length) {
@@ -51,20 +53,20 @@ function getGreetings(username: string) {
     const hour = date.getHours()
 
     if (hour <= 3) {
-        return 'Hey there night owl'
+        return t("home.greetings.night")
     } else if (hour <= 5) {
-        return 'Hey there early bird'
+        return t("home.greetings.early_morning")
     } else if (hour <= 12) {
-        return 'Good morning ' + username
+        return t("home.greetings.morning") + username
     } else if (hour <= 18) {
-        return 'Good afternoon ' + username
+        return t("home.greetings.afternoon") + username
     } else {
-        return 'Goooood evening ' + username
+        return t("home.greetings.evening") + username
     }
 }
 
 onMounted(async () => {
-    updatePageTitle('Home')
+    updatePageTitle(t("home.title"))
     await home.fetchRecentlyAdded()
 
     nextTick().then(updateCardWidth)

@@ -41,7 +41,7 @@
             :albumartists="item.albumartists"
           />
           &nbsp; • &nbsp;
-          {{ formatSeconds(item.duration, true) }}
+          {{ formatSeconds(item.duration, true, $t) }}
         </div>
       </div>
     </div>

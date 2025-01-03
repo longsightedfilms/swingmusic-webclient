@@ -1,21 +1,20 @@
 <template>
   <div class="welcome-to-swing">
     <h3 class="t-center">
-      Welcome to
+      {{ $t("modals.welcome.title") }}
       <span class="app-name">Swing Music</span>
     </h3>
     <p>
-      Swing Music is a web based music player that is designed to provide a home
-      🏡 for all your local music files 💿️.
+      {{ $t("modals.welcome.description") }}
     </p>
     <hr />
-    <p class="t-center">Let there be music!</p>
+    <p class="t-center">{{ $t("modals.welcome.cta") }}</p>
     <hr />
     <br />
 
     <div class="bottom-banner">
       <div class="creator t-center">
-        Designed and developed by
+        {{ $t("modals.welcome.developer") }}
         <span class="name"
           ><a target="_blank" href="https://github.com/cwilvx"
             >@cwilvx</a

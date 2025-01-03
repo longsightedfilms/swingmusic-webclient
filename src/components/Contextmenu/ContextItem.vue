@@ -17,7 +17,7 @@
     @click="runAction"
   >
     <div class="icon image" v-html="option.icon"></div>
-    <div class="label ellip">{{ option.label }}</div>
+    <div class="label ellip">{{ $t(option.label) }}</div>
     <div v-if="option.children" class="more" v-html="ExpandIcon"></div>
     <div
       v-if="option.children"
@@ -32,7 +32,7 @@
         @click="child.action && runChildAction(child.action)"
       >
         <div class="label ellip">
-          {{ child.label }}
+          {{ $t(child.label) }}
         </div>
       </div>
     </div>
@@ -184,7 +184,8 @@ function runChildAction(action: () => void) {
   }
 
   .label {
-    width: 9rem;
+    min-width: 9rem;
+    max-width: 15rem;
   }
 }
 </style>

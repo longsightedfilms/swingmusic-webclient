@@ -17,7 +17,7 @@
     >
       <div v-if="!menu.separator">
         <component :is="menu.icon" />
-        <span>{{ menu.name }}</span>
+        <span>{{ $t(menu.name) }}</span>
       </div>
     </router-link>
   </div>

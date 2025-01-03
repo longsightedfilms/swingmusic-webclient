@@ -13,7 +13,7 @@ export default async (path: string) => {
   const modal = useModal();
 
   const play_next = <Option>{
-    label: "Play next",
+    label: "context_menus.shared.play_next",
     action: () => {
       getTracksInPath(path).then((tracks) => {
         const store = useTracklist();
@@ -24,7 +24,7 @@ export default async (path: string) => {
   };
 
   const add_to_queue = <Option>{
-    label: "Add to Queue",
+    label: "context_menus.shared.queue",
     action: () => {
       getTracksInPath(path).then((tracks) => {
         const store = useTracklist();
@@ -40,7 +40,7 @@ export default async (path: string) => {
   };
 
   const add_to_playlist = <Option>{
-    label: "Add to Playlist",
+    label: "context_menus.shared.add_to_playlist",
     children: await getAddToPlaylistOptions(AddToPlaylistAction, {
       path,
     }),
@@ -48,7 +48,7 @@ export default async (path: string) => {
   };
 
   const save_as_playlist = <Option>{
-    label: "Save as Playlist",
+    label: "context_menus.shared.save_as_playlist",
     action: () => modal.showSaveFolderAsPlaylistModal(path),
     icon: icons.PlaylistIcon,
   };

@@ -3,7 +3,7 @@
     <router-link
       class="now-playling-from-link"
       :to="(data.location as RouteLocationRaw)"
-      title="Go to Play Source"
+      :title="$t('context_menus.shared.go_to_play_source')"
     >
       <div class="from">
         <img
@@ -23,7 +23,7 @@
           <component :is="data.icon"></component>
         </div>
         <div class="pad-sm">
-          <div class="type">{{ tracklist.from.type }}</div>
+          <div class="type">{{ $t(`tracklist_types.${tracklist.from.type}`) }}</div>
           <div class="ellip2">{{ data.name }}</div>
         </div>
       </div>

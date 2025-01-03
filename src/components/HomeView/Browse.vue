@@ -1,6 +1,6 @@
 <template>
   <div class="homebrowse">
-    <div class="btitle"><b>Browse Library</b></div>
+    <div class="btitle"><b>{{ $t("home.browse") }}</b></div>
     <div class="browselist">
       <RouterLink
         v-for="i in browselist"
@@ -9,7 +9,7 @@
         :to="{ name: i.route, params: i.params }"
         :style="{ width: `${album_card_with - 24}px` }"
       >
-        {{ i.title }}
+        {{ $t(i.title) }}
       </RouterLink>
     </div>
   </div>
@@ -21,34 +21,34 @@ import { album_card_with } from "@/stores/content-width";
 
 const browselist = [
   {
-    title: "Folders",
+    title: "shared.folders",
     route: Routes.folder,
     params: {
       path: "$home",
     },
   },
   {
-    title: "Albums",
+    title: "shared.albums",
     route: Routes.AlbumList,
   },
   {
-    title: "Artists",
+    title: "shared.artists",
     route: Routes.ArtistList,
   },
   {
-    title: "Playlists",
+    title: "shared.playlists",
     route: Routes.playlists,
   },
   {
-    title: "Favorites",
+    title: "shared.favorites",
     route: Routes.favorites,
   },
   {
-    title: "Favorite Tracks",
+    title: "shared.favorite_tracks",
     route: Routes.favoriteTracks,
   },
   {
-    title: "Favorite Artists",
+    title: "shared.favorite_artists",
     route: Routes.favoriteArtists,
   },
 ];

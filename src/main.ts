@@ -16,6 +16,7 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 
 import App from "./App.vue";
 import { router } from "./router";
+import { setupI18n } from "./i18n";
 import vTooltip from "./directives/vTooltip";
 
 import "./assets/scss/index.scss";
@@ -30,6 +31,7 @@ app.use(router);
 app.use(autoAnimatePlugin);
 app.use(VWave);
 app.use(MotionPlugin);
+app.use(setupI18n());
 
 app.directive("tooltip", vTooltip);
 

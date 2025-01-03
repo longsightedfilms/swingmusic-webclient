@@ -14,7 +14,7 @@
     </div>
     <div class="tinfo">
       <div v-if="track.help_text" class="rhelp track">
-        <span class="help">{{ track.help_text }}</span>
+        <span class="help">{{ $t(`help_texts.${track.help_text}`) }}</span>
         <span class="time">{{ track.time }}</span>
       </div>
       <div class="ttitle ellip">{{ track.title }}</div>

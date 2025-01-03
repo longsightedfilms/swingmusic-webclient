@@ -25,7 +25,7 @@
       <input
         id="globalsearch"
         v-model.trim="search.query"
-        placeholder="Start typing to search"
+        :placeholder="$t('search.input_placeholder')"
         type="search"
         autocomplete="off"
         spellcheck="false"

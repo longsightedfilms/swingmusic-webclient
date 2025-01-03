@@ -23,14 +23,14 @@
       />
     </div>
     <div v-if="artist.help_text" class="rhelp t-center">
-      <span class="help">{{ artist.help_text }}</span>
+      <span class="help">{{ $t(`help_texts.${artist.help_text}`) }}</span>
       <span class="time">{{ artist.time }}</span>
     </div>
     <div class="artist-name t-center">
       {{ artist.name }}
     </div>
     <div v-if="artist.help_text && artist.trackcount" class="racount t-center">
-      {{ artist.trackcount }} Track{{ artist.trackcount == 1 ? "" : "s" }}
+      {{ $t("artist.tracks_count", artist.trackcount) }}
     </div>
   </RouterLink>
 </template>

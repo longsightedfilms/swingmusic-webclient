@@ -24,7 +24,7 @@
       </div>
       <div class="title">Favorite Tracks</div>
       <div class="fcount">
-        <b>{{ item.count + ` Track${item.count == 1 ? "" : "s"}` }}</b>
+        <b>{{ $t("artist.tracks_count", item.count) }}</b>
       </div>
     </div>
   </RouterLink>

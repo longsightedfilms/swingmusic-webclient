@@ -7,8 +7,7 @@
     </div>
     <div class="set-root-dirs-browser">
       <h4 v-if="no_more_dirs">
-        📂 No folders here. Use the "Select here" button to select this
-        location.
+        {{ $t("modals.set_root_dirs.no_dirs") }}
       </h4>
       <div class="scrollable">
         <div class="content">
@@ -26,10 +25,10 @@
       </div>
       <div class="buttons">
         <button class="btn-active select-here" @click="selectHere">
-          Add this folder
+          {{ $t("modals.set_root_dirs.add_folder") }}
         </button>
         <button class="btn-active finish" @click="submitFolders">
-          Add all checked ({{ getNewDirs().length }})
+          {{ $t("modals.set_root_dirs.add_selected", { count: getNewDirs().length }) }}
         </button>
       </div>
     </div>

@@ -10,7 +10,7 @@
     @click="playFrom(source)"
   >
     <playBtnSvg />
-    <div class="text">Play</div>
+    <div class="text">{{ $t("shared.play") }}</div>
   </button>
 </template>
 
@@ -29,7 +29,7 @@ defineProps<{
 
 <style lang="scss">
 .playbtnrect {
-  width: 6rem;
+  min-width: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;

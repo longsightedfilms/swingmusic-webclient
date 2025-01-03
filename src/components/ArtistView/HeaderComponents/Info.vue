@@ -10,7 +10,7 @@
     }"
   >
     <section class="text">
-      <div class="card-title">Artist</div>
+      <div class="card-title">{{ $t("artist.badge") }}</div>
       <div
         class="artist-name"
         :class="`${useCircularImage ? 'ellip' : 'ellip2'}`"
@@ -20,18 +20,14 @@
       </div>
       <div class="stats">
         <span v-if="artist.trackcount">
-          {{ artist.trackcount.toLocaleString() }} Track{{
-            `${artist.trackcount == 1 ? "" : "s"}`
-          }}
+          {{ $t("artist.tracks_count", artist.trackcount) }}
         </span>
         {{ artist.albumcount && artist.trackcount.toLocaleString() ? "•" : "" }}
         <span v-if="artist.albumcount">
-          {{ artist.albumcount.toLocaleString() }} Album{{
-            `${artist.albumcount == 1 ? "" : "s"}`
-          }}
+          {{ $t("artist.albums_count", artist.albumcount) }}
         </span>
         <span v-if="artist.duration">
-          {{ ` • ${formatSeconds(artist.duration, true)}` }}
+          {{ ` • ${formatSeconds(artist.duration, true, $t)}` }}
         </span>
       </div>
     </section>

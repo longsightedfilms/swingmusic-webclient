@@ -31,6 +31,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 import { ScrollerItem } from "@/interfaces";
 
 import useQueueStore from "@/stores/queue";
@@ -48,6 +49,7 @@ const header: ScrollerItem = {
 
 const queue = useQueueStore();
 const store = useTracklist();
+const { t } = useI18n({ useScope: 'global' });
 
 function playFromQueue(index: number) {
   queue.play(index);
@@ -75,7 +77,7 @@ const scrollerItems = computed(() => {
   return items.concat(trackComponents);
 });
 
-onMounted(() => updatePageTitle("Now Playing"));
+onMounted(() => updatePageTitle(t("shared.now_playing")));
 </script>
 
 <style lang="scss">

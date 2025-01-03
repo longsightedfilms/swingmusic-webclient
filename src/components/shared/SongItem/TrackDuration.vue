@@ -1,6 +1,6 @@
 <template>
   <div class="options-and-duration">
-    <div class="song-duration">{{ formatSeconds(duration) }}</div>
+    <div class="song-duration">{{ formatSeconds(duration, false, $t) }}</div>
     <div
       class="options-icon circular"
       @click.stop="$emit('showMenu', $event)"

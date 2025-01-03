@@ -9,14 +9,15 @@
       />
     </div>
     <div v-if="isSmallPhone" class="stats2">
-      {{ album.date }} {{ !album.is_single ? `• ${album.count} Tracks` : "" }} •
-      {{ formatSeconds(album.duration, true) }}
+      {{ album.date }} {{ !album.is_single ? `• ${$t("artist.tracks_count", album.count)}` : "" }} •
+      {{ formatSeconds(album.duration, true, $t) }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { Album } from "@/interfaces";
 import { formatSeconds } from "@/utils";
@@ -28,17 +29,17 @@ const props = defineProps<{
   album: Album;
 }>();
 
+const { t } = useI18n({ useScope: "global" });
+
 const statsText = computed(() => {
   const is_single = props.album.is_single;
 
   // hide track count if it's a single, also add an s to track if it's plural
   return `• ${props.album.date} ${
     !is_single
-      ? `• ${props.album.count.toLocaleString()} Track${
-          props.album.count > 1 ? "s" : ""
-        }`
+      ? `• ${t("artist.tracks_count", props.album.count)}`
       : ""
-  } • ${formatSeconds(props.album.duration, true)}`;
+  } • ${formatSeconds(props.album.duration, true, t)}`;
 });
 </script>
 

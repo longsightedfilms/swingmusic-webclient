@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 import { xxl } from "@/composables/useBreakpoints";
 import { DBSettings, contextChildrenShowMode } from "@/enums";
 import { pluginSetActive, updatePluginSettings } from "@/requests/plugins";
+import { setI18nLanguage } from "@/i18n";
 
 import { usePlayer } from "@/stores/player";
 import { content_width } from "../content-width";
@@ -48,6 +49,9 @@ export default defineStore("settings", {
 
     // layout
     layout: "",
+
+    // language
+    language: "en-US"
   }),
   actions: {
     mapDbSettings(settings: DBSettings) {
@@ -214,6 +218,10 @@ export default defineStore("settings", {
       this.layout = "";
       this.use_np_img = true;
     },
+    setLanguage(language: string) {
+      this.language = language;
+      setI18nLanguage(language);
+    }
   },
   getters: {
     can_extend_width(): boolean {

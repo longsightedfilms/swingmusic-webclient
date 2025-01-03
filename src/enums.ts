@@ -56,7 +56,7 @@ export enum contextChildrenShowMode {
 export const discographyAlbumTypes = {
   all: "all",
   albums: "albums",
-  EPs_and_singles: "EP & singles",
+  EPs_and_singles: "eps_and_singles",
   appearances: "appearances",
   compilations: "compilations",
 };

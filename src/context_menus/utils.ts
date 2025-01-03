@@ -14,7 +14,7 @@ export function get_new_playlist_option(
   new_playlist_modal_props: any = {}
 ): Option {
   return {
-    label: "New playlist",
+    label: "modals.new_playlist.title",
     action: () => {
       modal().showNewPlaylistModal(new_playlist_modal_props);
     },
@@ -72,7 +72,7 @@ export const get_find_on_social = (page = "album", query = "") => {
     : useArtist().info.name;
 
   return <Option>{
-    label: "Search on",
+    label: "context_menus.shared.search_on",
     icon: SearchIcon,
     children: [
       {

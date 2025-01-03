@@ -2,8 +2,8 @@
   <div class="confirm-modal">
     <div class="t-center" style="padding: 0 4rem">{{ text }}</div>
     <div class="buttons">
-      <button class="cancel" @click="cancelAction">Cancel</button>
-      <button class="confirm" @click="confirmAction">Delete</button>
+      <button class="cancel" @click="cancelAction">{{ $t("shared.cancel") }}</button>
+      <button class="confirm" @click="confirmAction">{{ $t("shared.delete") }}</button>
     </div>
   </div>
 </template>

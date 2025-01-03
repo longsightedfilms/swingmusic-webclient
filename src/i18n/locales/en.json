@@ -1,0 +1,145 @@
+{
+    "home": {
+        "title": "Home",
+        "browse": "Browse Library",
+        "greetings": {
+            "night": "Hey there night owl",
+            "early_morning": "Hey there early bird",
+            "hello": "Hello there",
+            "morning": "Good morning ",
+            "afternoon": "Good afternoon ",
+            "evening": "Goooood evening "
+        }
+    },
+    "recent_items": {
+        "played": "Recently Played",
+        "added": "Recently Added"
+    },
+    "shared": {
+        "folders": "Folders",
+        "albums": "Albums",
+        "artists": "Artists",
+        "favorites": "Favorites",
+        "favorite_tracks": "Favorite Tracks",
+        "favorite_artists": "Favorite Artists",
+        "favorite_albums": "Favorite Albums",
+        "playlists": "Playlists",
+        "search": "Search",
+        "settings": "Settings",
+        "create": "Create",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "singles": "EP & Singles",
+        "eps_and_singles": "@:shared.singles",
+        "compilations": "Compilations",
+        "appearances": "Appearances",
+        "tracks": "Tracks",
+        "play": "Play",
+        "see_all": "See All",
+        "now_playing": "Now Playing",
+        "queue": "Queue",
+        "up_next": "Up Next",
+        "hour_format": "{n} hrs | {n} hr | {n} hrs",
+        "minute_format": "{n} minutes | {n} minute | {n} minutes",
+        "second_format": "{n} seconds | {n} second | {n} seconds",
+        "all": "All",
+        "all_albums": "All albums"
+    },
+    "artist": {
+        "badge": "Artist",
+        "tracks": "Artist Tracks",
+        "tracks_count": "{n} Tracks | {n} Track | {n} Tracks",
+        "albums_count": "{n} Albums | {n} Album | {n} Albums",
+        "all_count": "@:artist.albums_count",
+        "appearances_count": "{n} Appearances | {n} Appearance | {n} Appearances",
+        "eps_and_singles_count": "{n} EP & Singles | {n} EP & Single | {n} EP & Singles",
+        "compilations_count": "{n} Compilations | {n} Compilations | {n} Compilations",
+        "discography": "Discography {artist}"
+    },
+    "track": {
+        "master_flag": "Master audio bitrate - {bitrate} Kbps"
+    },
+    "lyrics": {
+        "title": "Lyrics",
+        "not_found": "You don't have <br>the lyrics for this song",
+        "search_loading": "Searching...",
+        "search_online": "Search online"
+    },
+    "search": {
+        "input_placeholder": "Start typing to search",
+        "similar_artists": "Similar Artists"
+    },
+    "tracklist_types": {
+        "playlist": "Playlist",
+        "folder": "Folder",
+        "album": "Album",
+        "search": "Search",
+        "artist": "Artist",
+        "favorite": "Favorite"
+    },
+    "album_types": {
+        "soundtrack": "Soundtrack",
+        "live": "Concert",
+        "compilation": "Compilation",
+        "ep": "EP",
+        "single": "Single"
+    },
+    "modals": {
+        "welcome": {
+            "title": "Welcome to",
+            "description": "Swing Music is a web based music player that is designed to provide a home 🏡 for all your local music files 💿️.",
+            "cta": "Let there be music!",
+            "developer": "Designed and developed by"
+        },
+        "root_dirs_prompt": {
+            "title": "Where do you want to look for music?",
+            "home": {
+                "title": "Home directory",
+                "description": "Scan all folders in your home directory."
+            },
+            "custom": {
+                "title": "Specific directories",
+                "description": "Select folders to scan for music."
+            }
+        },
+        "set_root_dirs": {
+            "no_dirs": "📂 No folders here. Use the \"Select here\" button to select this location.",
+            "add_folder": "Add this folder",
+            "add_selected": "Add all checked ({count})"
+        },
+        "delete_playlist": {
+            "title": "Are you sure you want to permanently delete this playlist?"
+        },
+        "new_playlist": {
+            "title": "New playlist",
+            "input_label": "Playlist name",
+            "input_placeholder": "Type a name...",
+            "validation_error": "Playlist name can't be empty"
+        }
+    },
+    "context_menus": {
+        "shared": {
+            "play_next": "Play next",
+            "queue": "Add to queue",
+            "queue_playlist": "Add queue to playlist",
+            "queue_save_as": "Save queue as playlist",
+            "add_to_playlist": "Add to Playlist",
+            "save_as_playlist": "Save as Playlist",
+            "search_on": "Search on",
+            "new_playlist": "New playlist",
+            "go_to_folder": "Go to Folder",
+            "go_to_artist": "Go to Artist",
+            "go_to_album_artist": "Go to Album Artist",
+            "open_in_files": "Open in files",
+            "go_to_album": "Go to Album",
+            "go_to_now_playing": "Go to Now Playing",
+            "go_to_play_source": "Go to Play Source",
+            "queue_remove": "Remove from Queue",
+            "playlist_remove": "Remove from Playlist",
+            "queue_clear": "Clear queue"
+        },
+        "album": {
+            "play_next": "Play next"
+        }
+    }
+}

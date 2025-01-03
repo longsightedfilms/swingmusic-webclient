@@ -28,6 +28,7 @@
 <script setup lang="ts">
 import { computed, nextTick } from "vue";
 import { onBeforeRouteLeave, onBeforeRouteUpdate, useRoute } from "vue-router";
+import { useI18n } from "vue-i18n";
 
 import useArtist from "@/stores/pages/artist";
 import useQueue from "@/stores/queue";
@@ -48,6 +49,8 @@ const route = useRoute();
 const queue = useQueue();
 const store = useArtist();
 const tracklist = useTracklist();
+
+const { t } = useI18n({ useScope: 'global' });
 
 function fetchArtistAlbums() {
   return store.getArtistAlbums();
@@ -105,19 +108,24 @@ function createAbumComponent(
   show_date = true
 ) {
   let albumType = null;
+  let localizedTitle = "";
 
   switch (title) {
     case AlbumType.ALBUMS:
       albumType = discographyAlbumTypes.albums;
+      localizedTitle = t("shared.albums");
       break;
     case AlbumType.SINGLES:
       albumType = discographyAlbumTypes.EPs_and_singles;
+      localizedTitle = t("shared.singles");
       break;
     case AlbumType.COMPILATIONS:
       albumType = discographyAlbumTypes.compilations;
+      localizedTitle = t("shared.compilations");
       break;
     case AlbumType.APPEARANCES:
       albumType = discographyAlbumTypes.appearances;
+      localizedTitle = t("shared.appearances");
       break;
 
     default:
@@ -127,7 +135,7 @@ function createAbumComponent(
     id: title,
     component: CardScroller,
     props: {
-      title,
+      title: localizedTitle,
       items: albums.map((album) => ({
         type: "album",
         item: album,
@@ -148,7 +156,7 @@ function getTopTracksComponent(): ScrollerItem {
     component: TopTracks,
     props: {
       tracks: store.tracks,
-      title: "Tracks",
+      title: t("shared.tracks"),
       route: `/artists/${store.info.artisthash}/tracks?artist=${store.info.name}`,
       playHandler: handlePlay,
       source: dropSources.artist,
@@ -217,7 +225,7 @@ const scrollerItems = computed(() => {
           type: "artist",
           item: artist,
         })),
-        title: "Similar Artists",
+        title: t("search.similar_artists"),
       },
     };
     components.push(SimilarArtistsComponent);

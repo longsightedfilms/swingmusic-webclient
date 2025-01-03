@@ -9,7 +9,7 @@
             albumhash: queue.currenttrack?.albumhash || ' ',
           },
         }"
-        title="Go to Album"
+        :title="$t('context_menus.shared.go_to_album')"
         class="np-image"
       >
         <img
@@ -22,15 +22,15 @@
       <Progress v-if="isSmallPhone" />
       <div v-if="isSmallPhone" class="below-progress">
         <div class="time">
-          {{ formatSeconds(queue.duration.current) }}
+          {{ formatSeconds(queue.duration.current, false, $t) }}
         </div>
         <Buttons :hide-heart="true" @handleFav="() => {}" />
         <div class="time">
-          {{ formatSeconds(queue.duration.full) }}
+          {{ formatSeconds(queue.duration.full, false, $t) }}
         </div>
       </div>
     </div>
-    <h3 v-if="queue.next">Up Next</h3>
+    <h3 v-if="queue.next">{{ $t("shared.up_next") }}</h3>
     <SongItem
       v-if="queue.next"
       :track="queue.next"
@@ -38,7 +38,7 @@
       :source="dropSources.folder"
       @play-this="queue.playNext"
     />
-    <h3>Queue</h3>
+    <h3>{{ $t("shared.queue") }}</h3>
   </div>
 </template>
 

@@ -1,22 +1,23 @@
 <template>
   <form class="playlist-modal" @submit="create">
-    <label for="name">Playlist name</label>
+    <label for="name">{{ $t("modals.new_playlist.input_label") }}</label>
     <br />
     <input
       id="modal-playlist-name-input"
       type="search"
       class="rounded-sm"
       name="name"
-      placeholder="Type a name..."
+      :placeholder="$t('modals.new_playlist.input_placeholder')"
       spellcheck="false"
     />
     <br /><br />
-    <button type="submit">Create</button>
+    <button type="submit">{{ $t("shared.create") }}</button>
   </form>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 
 import {
   saveAlbumAsPlaylist,
@@ -39,6 +40,7 @@ const props = defineProps<{
 }>();
 
 const store = usePlaylistStore();
+const { t } = useI18n({ useScope: 'global' });
 
 onMounted(() => {
   const input_elem = document.getElementById(
@@ -53,7 +55,7 @@ const emit = defineEmits<{
   (e: "hideModal"): void;
 }>();
 
-emit("setTitle", "New Playlist");
+emit("setTitle", t("modals.new_playlist.title"));
 
 /**
  * Create a new playlist. If this modal is called with a track,

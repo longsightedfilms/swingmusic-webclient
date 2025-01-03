@@ -1,3 +1,4 @@
+import { useI18n } from "vue-i18n";
 import useModal from "@/stores/modal";
 import useAlbum from "@/stores/pages/album";
 import useTracklist from "@/stores/queue/tracklist";
@@ -9,7 +10,7 @@ import { AddToQueueIcon, PlayNextIcon, PlaylistIcon, PlusIcon } from "@/icons";
 
 export default async () => {
   const play_next = <Option>{
-    label: "Play next",
+    label: "context_menus.shared.play_next",
     action: () => {
       const tracks = useAlbum().tracks.filter(
         (track) => !track.is_album_disc_number
@@ -20,7 +21,7 @@ export default async () => {
   };
 
   const add_to_queue = <Option>{
-    label: "Add to queue",
+    label: "context_menus.shared.queue",
     action: () => {
       const tracks = useAlbum().tracks.filter(
         (track) => !track.is_album_disc_number
@@ -37,7 +38,7 @@ export default async () => {
   };
 
   const add_to_playlist: Option = {
-    label: "Add to Playlist",
+    label: "context_menus.shared.add_to_playlist",
     children: await getAddToPlaylistOptions(AddToPlaylistAction, {
       albumhash: useAlbum().info.albumhash,
     }),
@@ -45,7 +46,7 @@ export default async () => {
   };
 
   const save_as_playlist: Option = {
-    label: "Save as Playlist",
+    label: "context_menus.shared.save_as_playlist",
     action: () => {
       const modal = useModal();
       const album = useAlbum();

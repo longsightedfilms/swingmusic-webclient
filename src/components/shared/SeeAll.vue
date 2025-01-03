@@ -1,6 +1,6 @@
 <template>
   <span class="see-all">
-    <RouterLink :to="route"> <b>SEE ALL</b> </RouterLink>
+    <RouterLink :to="route"> <b>{{ $t("shared.see_all") }}</b> </RouterLink>
   </span>
 </template>
 
@@ -14,6 +14,7 @@ defineProps<{
 .see-all {
   font-size: $medium;
   opacity: 0.75;
+  text-transform: uppercase;
 
   a:hover {
     text-decoration: underline;

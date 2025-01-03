@@ -12,16 +12,14 @@
           }"
           >{{ route.query.artist }}</RouterLink
         >
-        • {{ artist.toShow.length }}
-        <span class="caps">{{
-          getTypeString(route.params.type.toString())
-        }}</span></template
-      >
+        • {{ $t(`artist.${route.params.type}_count`, artist.toShow.length) }}
+      </template>
     </GenericHeader>
     <GenericTabs
       :items="
         Object.values(discographyAlbumTypes).map((type) => ({
-          title: type,
+          title: $t(`shared.${type}`),
+          type,
           params: {
             hash: route.params.hash,
             type: type,
@@ -31,7 +29,7 @@
       "
       :active="
         (item) => {
-          return item.title == route.params.type;
+          return item.type == route.params.type;
         }
       "
       :route="Routes.artistDiscography"
@@ -62,6 +60,7 @@
 <script setup lang="ts">
 import { Routes } from "@/router";
 import { onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 import { onBeforeRouteLeave, onBeforeRouteUpdate, useRoute } from "vue-router";
 
 import { discographyAlbumTypes } from "@/enums";
@@ -76,20 +75,14 @@ import NoItems from "@/components/shared/NoItems.vue";
 
 const route = useRoute();
 const artist = useArtistDiscography();
-
-function getTypeString(type: string) {
-  if (type === "all") return "Contributions";
-  return getTypeName(type);
-}
+const { t } = useI18n({ useScope: "global" });
 
 function getTypeName(type: string | string[]) {
-  // @ts-ignore
-  if (type == "all") return "All Albums";
-  return type;
+  return t(`shared.${type == 'all' ? 'all_albums' : type}`);
 }
 
 onMounted(() => {
-  updatePageTitle("Discography" + (route.params.artist || ""));
+  updatePageTitle(t("artist.discography", String(route.params.artist) || ""));
   artist.fetchAlbums(route.params.hash as string);
 });
 

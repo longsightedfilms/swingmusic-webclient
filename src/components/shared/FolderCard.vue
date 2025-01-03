@@ -32,7 +32,7 @@
             v-if="folder.help_text"
             class="rhelp folder"
         >
-            <span class="help">{{ folder.help_text }}</span>
+            <span class="help">{{ $t(`help_texts.${folder.help_text}`) }}</span>
             <span class="time">{{ folder.time }}</span>
         </div>
         <div
@@ -42,7 +42,7 @@
             {{ name(folder.path) }}
         </div>
         <div class="rtcount">
-            <b>{{ folder.count }} Track{{ folder.count == 1 ? '' : 's' }}</b>
+            <b>{{ $t("artist.tracks_count", folder.count) }}</b>
         </div>
     </RouterLink>
 </template>

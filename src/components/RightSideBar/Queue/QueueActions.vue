@@ -10,7 +10,7 @@
         <ShuffleSvg />
         <span>Shuffle</span>
       </button>
-      <h2 v-else style="margin: 0">Now Playing</h2>
+      <h2 v-else style="margin: 0">{{ $t("shared.now_playing") }}</h2>
     </div>
     <div class="right">
       <button

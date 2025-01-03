@@ -2,7 +2,7 @@
   <span
     v-if="bitrate > 1024"
     class="master-flag"
-    :title="!text ? 'Master audio bitrate - ' + `${bitrate} Kbps` : ''"
+    :title="!text ? $t('track.master_flag', { bitrate }) : ''"
     :style="{
       backgroundColor: bg_color
         ? fill

@@ -14,7 +14,7 @@
         ` ${playlist.info.count == 1 ? "Track" : "Tracks"}`
       }}
       •
-      {{ formatSeconds(playlist.info.duration, true) }}
+      {{ formatSeconds(playlist.info.duration, true, $t) }}
     </div>
     <div ref="test_elem"></div>
     <div

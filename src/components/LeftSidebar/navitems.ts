@@ -8,27 +8,28 @@ import SearchSvg from "@/assets/icons/search.svg";
 import SettingsSvg from "@/assets/icons/settings.svg";
 import HomeSvg from "@/assets/icons/home.svg";
 
+
 const folder = {
-  name: "folders",
+  name: "shared.folders",
   route_name: Routes.folder,
   params: { path: "$home" },
   icon: FolderSvg,
 };
 
 const favorites = {
-  name: "favorites",
+  name: "shared.favorites",
   route_name: Routes.favorites,
   icon: HeartSvg,
 };
 
 const playlists = {
-  name: "playlists",
+  name: "shared.playlists",
   route_name: Routes.playlists,
   icon: PlaylistSvg,
 };
 
 const home = {
-  name: "home",
+  name: "home.title",
   route_name: Routes.Home,
   icon: HomeSvg,
 };
@@ -37,7 +38,7 @@ export const menus = [
   home,
   folder,
   {
-    name: "search",
+    name: "shared.search",
     route_name: Routes.search,
     params: { page: "top" },
     query: () => ({ q: useSearchStore().query }),
@@ -52,7 +53,7 @@ export const menus = [
     separator: true,
   },
   {
-    name: "settings",
+    name: "shared.settings",
     route_name: Routes.settings,
     params: { tab: "general" },
     icon: SettingsSvg,

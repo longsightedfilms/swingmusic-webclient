@@ -1,25 +1,25 @@
 <template>
   <div class="info">
-    <SettingsTitle v-if="$route.name == Routes.settings" :text="'Settings'" />
+    <SettingsTitle v-if="$route.name == Routes.settings" :text="$t('shared.settings')" />
     <SearchTitle v-if="$route.name == Routes.search" />
     <PlaylistsTitle v-if="$route.name == Routes.playlists" />
     <SimpleNav
       v-if="$route.name == Routes.artistTracks"
-      :text="$route.query.artist as string || 'Artist Tracks'"
+      :text="$route.query.artist as string || $t('artist.tracks')"
     />
     <SimpleNav
       v-if="$route.name === Routes.favoriteAlbums"
-      :text="'Favorite Albums'"
+      :text="$t('shared.favorite_albums')"
     />
     <SimpleNav
       v-if="$route.name === Routes.favoriteArtists"
-      :text="'Favorite Artists'"
+      :text="$t('shared.favorite_artists')"
     />
     <SimpleNav
       v-if="$route.name === Routes.favoriteTracks"
-      :text="'Favorite Tracks'"
+      :text="$t('shared.favorite_tracks')"
     />
-    <SimpleNav v-if="$route.name === Routes.nowPlaying" :text="'Now Playing'" />
+    <SimpleNav v-if="$route.name === Routes.nowPlaying" :text="$t('shared.now_playing')" />
   </div>
 </template>
 

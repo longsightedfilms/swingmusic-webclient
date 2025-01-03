@@ -10,14 +10,14 @@ export default async () => {
   };
 
   const playNext: Option = {
-    label: "Play next",
+    label: "context_menus.shared.play_next",
     action: () => {
       console.log("play next");
     },
   };
 
   const addToQueue: Option = {
-    label: "Add to queue",
+    label: "context_menus.shared.queue",
     action: () => {
       console.log("add to queue");
     },

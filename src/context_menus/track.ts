@@ -72,7 +72,7 @@ export default async (
   };
 
   const add_to_playlist: Option = {
-    label: "Add to Playlist",
+    label: "context_menus.shared.add_to_playlist",
     children: await getAddToPlaylistOptions(AddToPlaylistAction, {
       trackhash: track.trackhash,
       playlist_name: track.title + " Radio",
@@ -81,7 +81,7 @@ export default async (
   };
 
   const add_to_q: Option = {
-    label: "Add to Queue",
+    label: "context_menus.shared.queue",
     action: () => {
       useTracklist().addTrack(track);
     },
@@ -89,7 +89,7 @@ export default async (
   };
 
   const play_next: Option = {
-    label: "Play next",
+    label: "context_menus.shared.play_next",
     action: () => {
       useQueueStore().playTrackNext(track);
     },
@@ -97,7 +97,7 @@ export default async (
   };
 
   const go_to_folder: Option = {
-    label: "Go to Folder",
+    label: "context_menus.shared.go_to_folder",
     action: () => {
       Router.push({
         name: Routes.folder,
@@ -108,7 +108,7 @@ export default async (
   };
 
   const go_to_artist: Option = {
-    label: `Go to Artist`,
+    label: "context_menus.shared.go_to_artist",
     icon: ArtistIcon,
     action: () => {
       single_artist
@@ -124,7 +124,7 @@ export default async (
   };
 
   const go_to_alb_artist: Option = {
-    label: `Go to Album Artist`,
+    label: "context_menus.shared.go_to_album_artist",
     action: () => {
       single_album_artist
         ? Router.push({
@@ -140,7 +140,7 @@ export default async (
   };
 
   const open_in_explorer: Option = {
-    label: "Open in files",
+    label: "context_menus.shared.open_in_files",
     action: () => {
       openInFiles(track.filepath || track.folder || "");
     },
@@ -148,7 +148,7 @@ export default async (
   };
 
   const go_to_album: Option = {
-    label: "Go to Album",
+    label: "context_menus.shared.go_to_album",
     action: () => {
       Router.push({
         name: Routes.album,
@@ -167,7 +167,7 @@ export default async (
 
   const getRemoveFromPlaylistOption = () =>
     <Option>{
-      label: "Remove From Playlist",
+      label: "context_menus.shared.playlist_remove",
       action: () => {
         removeTracks(parseInt(route.params.pid as string), [
           { trackhash: track.trackhash, index: track.index },
@@ -200,7 +200,7 @@ export default async (
 
   if (route.name === Routes.nowPlaying) {
     options.splice(0, 0, <Option>{
-      label: "Remove from Queue",
+      label: "context_menus.shared.queue_remove",
       action: () => {
         useTracklist().removeByIndex(track.index);
       },

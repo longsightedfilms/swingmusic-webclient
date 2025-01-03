@@ -7,7 +7,7 @@
     />
     <RouterLink
       v-else
-      title="Go to Now Playing"
+      :title="$t('context_menus.shared.go_to_now_playing')"
       :to="{
         name: Routes.nowPlaying,
         params: {
@@ -30,14 +30,14 @@
     >
       <div v-tooltip class="title">
         <span class="ellip">
-          {{ queue.currenttrack?.title || "Hello there" }}
+          {{ queue.currenttrack?.title || $t("home.greetings.hello") }}
         </span>
         <MasterFlag :bitrate="queue.currenttrack?.bitrate || 0" />
       </div>
       <ArtistName
         :artists="queue.currenttrack?.artists || []"
         :albumartists="
-          queue.currenttrack?.albumartists || 'Welcome to Swing Music'
+          queue.currenttrack?.albumartists || `${$t('modals.welcome.title')} Swing Music`
         "
         class="artist"
       />

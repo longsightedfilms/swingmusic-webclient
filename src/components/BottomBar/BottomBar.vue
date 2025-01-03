@@ -10,7 +10,7 @@
       <div v-if="!isMobile" class="with-time">
         <div class="time time-current">
           <span>
-            {{ formatSeconds(queue.duration.current || 0) }}
+            {{ formatSeconds(queue.duration.current || 0, false, $t) }}
           </span>
         </div>
 
@@ -19,7 +19,7 @@
         </div>
         <div class="time time-full">
           <span>
-            {{ formatSeconds(queue.duration.full) }}
+            {{ formatSeconds(queue.duration.full, false, $t) }}
           </span>
         </div>
       </div>

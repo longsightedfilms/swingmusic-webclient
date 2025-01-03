@@ -17,7 +17,7 @@
       <div class="info">
         <div class="f-item-text ellip">{{ folder.name }}</div>
         <div class="f-count">
-          {{ folder.trackcount.toLocaleString() + ` File${folder.trackcount == 1 ? "" : "s"}` }}
+          {{ folder?.trackcount?.toLocaleString() + ` File${folder.trackcount == 1 ? "" : "s"}` }}
         </div>
       </div>
       <div v-if="!folder_page" class="check">

@@ -10,7 +10,7 @@ import { AddToQueueIcon, PlayNextIcon, PlaylistIcon, PlusIcon } from "@/icons";
 
 export default async (artisthash: string, artistname: string) => {
   const play_next = <Option>{
-    label: "Play next",
+    label: "context_menus.shared.play_next",
     action: () => {
       getArtistTracks(artisthash).then((tracks) => {
         const store = useTracklist();
@@ -21,7 +21,7 @@ export default async (artisthash: string, artistname: string) => {
   };
 
   const add_to_queue = <Option>{
-    label: "Add to queue",
+    label: "context_menus.shared.queue",
     action: () => {
       getArtistTracks(artisthash).then((tracks) => {
         const store = useTracklist();
@@ -37,7 +37,7 @@ export default async (artisthash: string, artistname: string) => {
   };
 
   const add_to_playlist: Option = {
-    label: "Add to Playlist",
+    label: "context_menus.shared.add_to_playlist",
     children: await getAddToPlaylistOptions(AddToPlaylistAction, {
       artisthash,
     }),
@@ -45,7 +45,7 @@ export default async (artisthash: string, artistname: string) => {
   };
 
   const save_as_playlist: Option = {
-    label: "Save as Playlist",
+    label: "context_menus.shared.save_as_playlist",
     action: () => {
       const store = modal();
       store.showSaveArtistAsPlaylistModal(artistname, artisthash);

@@ -31,7 +31,7 @@ export default async () => {
   const store = useTracklist();
 
   const clearQueue: Option = {
-    label: "Clear queue",
+    label: "context_menus.shared.queue_clear",
     action: () => {
       useQueue().clearQueue();
     },
@@ -40,7 +40,7 @@ export default async () => {
   };
 
   const saveAsPlaylist: Option = {
-    label: "Save queue as playlist",
+    label: "context_menus.shared.queue_save_as",
     action: () => {
       useModalStore().showSaveQueueAsPlaylistModal(getQueueName(store.from));
     },
@@ -52,7 +52,7 @@ export default async () => {
   };
 
   const addToPlaylist: Option = {
-    label: "Add queue to playlist",
+    label: "context_menus.shared.queue_playlist",
     children: await getAddToPlaylistOptions(AddToPlaylistAction, {
       trackhash: store.tracklist.map((t) => t.trackhash).join(","),
     }),
